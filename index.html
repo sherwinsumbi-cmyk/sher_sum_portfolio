@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sherwin A. Sumbi | Portfolio</title>
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family:'Segoe UI',sans-serif;
+  background:#0f172a;
+  color:#f1f5f9;
+  display:flex;
+  min-height:100vh;
+}
+
+/* Navbar */
+nav {
+  width:220px;
+  background:#1e293b;
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:30px;
+}
+nav ul {
+  list-style:none;
+  width:100%;
+}
+nav ul li {
+  width:100%;
+}
+nav ul li a {
+  display:block;
+  width:100%;
+  padding:15px 20px;
+  color:#f1f5f9;
+  font-weight:bold;
+  text-decoration:none;
+  text-align:left;
+  transition:0.3s;
+}
+nav ul li a:hover {
+  background:#38bdf8;
+  color:#0f172a;
+}
+
+/* Main content */
+.main-content {
+  flex:1;
+  padding:40px 30px;
+}
+
+/* Hero */
+header {
+  text-align:center;
+  padding:60px 20px;
+  background:linear-gradient(135deg,#1e293b,#0f172a);
+  border-radius:15px;
+}
+
+.profile-pic {
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #38bdf8;
+  box-shadow:0 0 25px rgba(56,189,248,0.4);
+  margin-bottom:20px;
+}
+
+header h1 {
+  font-size:2.5rem;
+  background:linear-gradient(90deg,#38bdf8,#0ea5e9);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.hero-info { margin-top:10px; color:#94a3b8; }
+header p { margin-top:20px; color:#a5b4fc; }
+
+#typed-text {
+  border-right:2px solid #38bdf8;
+  white-space:nowrap;
+  overflow:hidden;
+  display:inline-block;
+}
+
+/* Sections */
+section { padding:40px 0; display:none; }
+h2 { text-align:center; margin-bottom:25px; color:#38bdf8; }
+
+/* Cards */
+.card {
+  background:#1e293b;
+  padding:20px;
+  border-radius:15px;
+  margin-bottom:20px;
+  transition:0.3s;
+  cursor:pointer;
+}
+.card:hover { transform:translateY(-5px); }
+
+/* Skills */
+.skills-container { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.skill-badge {
+  padding:10px 15px;
+  background:#0f172a;
+  border-radius:20px;
+}
+.skill-badge:hover {
+  background:#38bdf8;
+  color:#0f172a;
+}
+
+/* Contact links */
+.card a {
+  color:#38bdf8;
+  text-decoration:none;
+  font-weight:bold;
+}
+.card a:hover { text-decoration:underline; }
+
+/* Modal */
+.modal {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background:#1e293b;
+  margin:10% auto;
+  padding:30px;
+  width:90%;
+  max-width:500px;
+  border-radius:15px;
+  text-align:center;
+  position:relative;
+}
+
+.close {
+  position:absolute;
+  right:15px;
+  top:10px;
+  font-size:25px;
+  cursor:pointer;
+  color:#38bdf8;
+}
+
+/* Footer */
+footer {
+  text-align:center;
+  padding:20px;
+  background:#1e293b;
+  border-top:2px solid #38bdf8;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav>
+<ul>
+<li><a onclick="showSection('about')">About</a></li>
+<li><a onclick="showSection('objective')">Career Objective</a></li>
+<li><a onclick="showSection('skills')">Skills</a></li>
+<li><a onclick="showSection('projects')">Projects</a></li>
+<li><a onclick="showSection('contact')">Contact</a></li>
+</ul>
+</nav>
+
+<!-- Main Content -->
+<div class="main-content">
+
+<!-- Hero -->
+<header>
+<img src="Sherwin.jpg.jpg" alt="Sherwin Sumbi" class="profile-pic">
+<h1>Sherwin A. Sumbi</h1>
+<div class="hero-info">
+🎓 BSIT – 3rd Year <br>
+🏫 Madridejos Community College
+</div>
+<p><span id="typed-text"></span></p>
+</header>
+
+<!-- About -->
+<section id="about">
+<h2>About Me</h2>
+<div class="card">
+<p>
+I am passionate about web development and software systems. I enjoy building clean and interactive applications while continuously improving my technical skills.
+</p>
+</div>
+</section>
+
+<!-- Career Objective -->
+<section id="objective">
+<h2>Career Objective</h2>
+<div class="card">
+<p>
+As a dedicated BSIT student, I am passionate about web and software development, building interactive and efficient applications that solve real-world problems. I aim to continuously improve my technical skills while contributing to innovative projects that showcase creativity and functionality.
+</p>
+</div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills-container">
+<span class="skill-badge">HTML</span>
+<span class="skill-badge">CSS</span>
+<span class="skill-badge">JavaScript</span>
+<span class="skill-badge">PHP</span>
+<span class="skill-badge">MySQL</span>
+<span class="skill-badge">Python</span>
+</div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="card" onclick="openModal('Student Information System','This system manages student records, enrollment, grades, and reports using PHP and MySQL.')">
+<h3>Student Information System</h3>
+</div>
+
+<div class="card" onclick="openModal('Inventory Management System','The Inventory Management System tracks products, stock levels, suppliers, and sales. It helps businesses monitor inventory in real-time and prevent shortages.')">
+<h3>Inventory Management System</h3>
+</div>
+
+<div class="card" onclick="openModal('Portfolio Website','A responsive portfolio website built using HTML, CSS, and JavaScript.')">
+<h3>Personal Portfolio Website</h3>
+</div>
+
+</section>
+
+<!-- Contact -->
+<section id="contact">
+<h2>Contact</h2>
+<div class="card">
+<p>📧 <a href="mailto:sherwinsumbi@gmail.com">sherwinsumbi@gmail.com</a></p>
+<p>📱 <a href="tel:+639106211837">+63 910 621 1837</a></p>
+<p>🌐 Facebook: <a href="https://www.facebook.com/sherwin.sumbi" target="_blank">Sherwin Sumbi</a></p>
+</div>
+</section>
+
+<!-- Modal -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+function showSection(sectionId){
+  const sections=['about','objective','skills','projects','contact'];
+  sections.forEach(id=>{
+    document.getElementById(id).style.display=(id===sectionId)?'block':'none';
+  });
+}
+showSection('about');
+
+/* Typing Effect */
+const texts=["Future Web Developer","3rd Year BSIT Student","Creative Problem Solver"];
+let i=0,j=0,isDeleting=false;
+const typed=document.getElementById("typed-text");
+function type(){
+ let full=texts[i];
+ typed.textContent=isDeleting?full.substring(0,j--):full.substring(0,j++);
+ if(!isDeleting && j===full.length+1){isDeleting=true;setTimeout(type,1000);}
+ else if(isDeleting && j===0){isDeleting=false;i=(i+1)%texts.length;setTimeout(type,200);}
+ else{setTimeout(type,isDeleting?50:150);}
+}
+type();
+
+/* Modal */
+const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+function openModal(title, desc){
+  modal.style.display = "block";
+  modalTitle.textContent = title;
+  modalDesc.textContent = desc;
+}
+function closeModal(){
+  modal.style.display = "none";
+}
+window.onclick = function(event){
+  if(event.target == modal){ closeModal(); }
+}
+</script>
+
+</body>
+</html>
